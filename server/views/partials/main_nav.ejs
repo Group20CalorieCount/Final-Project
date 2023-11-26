@@ -1,7 +1,7 @@
 <!--Nav-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">INFR3120</a>
+    <img src="Assets/new logo.png" alt="team logo" width="60" height="55">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,50 +9,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-        <% if (title == "Home ") { %> 
-          <a class="nav-link active" href="/home">
-        <% } else { %>
-           <a class="nav-link" href="/home">
-        <% } %>
-          <i class="fa-solid fa-house"></i> Home</a>
-        </li>
-  
-        <li class="nav-item">
-        <% if (title == "About") { %>
-          <a class="nav-link active" href="/about">
-          <% } else { %>
-          <a class="nav-link" href="/about">
-          <% } %>
-          <i class="fa-solid fa-person"></i> About</a>
-        </li>
-        
-        <li class="nav-item">
         <% if (title == "Workouts") { %>
           <a class="nav-link active" href="/Workout-list">
           <% } else { %>
           <a class="nav-link" href="/Workout-list">
           <% } %>
-          <i class="fa-solid fa-dumbbell"></i> Workouts</a>
+          <i class="fa-solid fa-apple-whole"></i> Macro Tracker</a>
         </li>
 
-        <li class="nav-item">
-        <% if (title == "Projects") { %>
-          <a class="nav-link active" href="/projects">
-          <% } else { %>
-          <a class="nav-link" href="/projects">
-          <% } %>
-          <i class="fa-brands fa-elementor"></i> Projects</a>
-        </li>
-
-        <li class="nav-item">
-        <% if (title == "Contact Me") { %>
-          <a class="nav-link active" href="/contact">
-          <% } else { %>
-          <a class="nav-link" href="/contact">
-          <% } %>
-          <i class="fa-solid fa-envelope"></i> Contact Me</a>
-        </li>
-        <li class="nav-item">
     </div>
   </div>
 </nav>

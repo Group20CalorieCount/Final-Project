@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
     try {
       const Workoutlist = await Work.find(); 
       res.render('workout/list', {
-        title: 'Workouts', 
+        title: 'Macro Tracker', 
         Workoutlist: Workoutlist
       });
     } catch (err) {
@@ -34,82 +34,69 @@ router.get('/add', async (req, res, next) => {
 
 });
 /* Post route for processing the Add-Page -- Create Operation */
-router.get('/add', async (req, res, next) => {
-  let newWorkout = Work ({
-    "name":req.body.name,
-    "sets":req.body.sets,
-    "reps":req.body.reps,
-    "description":req.body.description,
-    "targetMuscle":req.body.targetMuscle
+router.post('/add', async (req, res, next) => {
+  let newWorkout = new Work({
+      "name": req.body.name,
+      "sets": req.body.sets,
+      "reps": req.body.reps,
+      "description": req.body.description,
+      "targetMuscle": req.body.targetMuscle
   });
-  Work.create(newWorkout,(err,Work) => {
-    if(err)
-    {
+  try {
+      await newWorkout.save();
+      res.redirect('/workout-list');
+  } catch (err) {
       console.log(err);
-      res.end(err);
-    }
-    else
-    {
-      res.redirect('workout/add');
-    }
-  })
-
+      res.status(500).send('Error occurred while adding the workout');
+  }
 });
+
 /* EDIT operation */
 /* Get route for displaying the Edit Operation -- Update Operation */
 router.get('/edit/:id', async (req, res, next) => {
   let id = req.params.id;
-  Work.findbyId(id,(err,workToEdit) =>{
-    if(err)
-    {
-      console.log(err);
-      res.end(err);
-    }
-    else
-    {
-      res.render('workout/edit',{title:'Edit Excercise', work:workToEdit});
-    }
-  });
+  try {
+    let workToEdit = await Work.findById(id);
+    res.render('workout/edit', { title: 'Edit Exercise', work: workToEdit });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Error occurred while fetching the workout for edit');
+  }
 });
+
 /* Post route for displaying the Edit Operation -- Update Operation */
-router.get('/edit/:id', async (req, res, next) => {
+router.post('/edit/:id', async (req, res, next) => {
   let id = req.params.id;
-  let updateWork = Work({
-      "_id":id,
-      "name":req.body.name,
-      "sets":req.body.sets,
-      "reps":req.body.reps,
-      "description":req.body.description,
-      "targetMuscle":req.body.targetMuscle
-  });
-  Work.updateOne({_id:id}, updateWork,(err) => {
-    if(err)
-    {
-      console.log(err);
-      res.end(err);
-    }
-    else
-    {
-      res.redirect('workout/list');
-    }
-  });
+  try {
+    await Work.updateOne({_id: id}, {
+      $set: {
+        "name": req.body.name,
+        "sets": req.body.sets,
+        "reps": req.body.reps,
+        "description": req.body.description,
+        "targetMuscle": req.body.targetMuscle
+      }
+    });
+    res.redirect('/workout-list');
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Error occurred while updating the workout');
+  }
 });
+
 /* DELETE operation */
 /* Get to perform Delete operation -- Remove Operation */
 router.get('/delete/:id', async (req, res, next) => {
-    let id =req.params.id;
-    Work.remove({_id:id},(err) => {
-      if(err)
-    {
+  let id = req.params.id;
+  try {
+      await Work.deleteOne({_id: id});
+      res.redirect('/workout-list');
+  } catch (err) {
       console.log(err);
-      res.end(err);
-    }
-    else
-    {
-      res.redirect('workout/list');
-    }
-  });
+      res.status(500).send('Error occurred while deleting the workout');
+  }
 });
+
 
 
 module.exports = router;

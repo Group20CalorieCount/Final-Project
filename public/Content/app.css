@@ -4,10 +4,10 @@
 body {
 background:linear-gradient(46deg, #fffc33, #2D26EF);
 
-background:linear-gradient(1rad, #fffc33, #2D26EF);
+background:linear-gradient(1rad, #44ff33, #2D26EF);
 
 
-background:linear-gradient(to right, #fffc33, #2D26EF);
+background:linear-gradient(to right, #33ff4b, #ff0505);
 background-color: #2D26EF;
 font-family: Trebuchet MS, Geneva, Arial, sans-serif;
 padding:0px;

@@ -1,0 +1,67 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Content for the Edit page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1>Edit the Table</h1>
+            <p style="font-size: 20px;">Edit the information on the table.</p>
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="nameTextField">Name of food</label>
+                    <input type="text" class="form-control"
+                    id="nameTextField"
+                    placeholder="Enter the name of the food"
+                    name="name" 
+                    value="<%= work.name %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="setsTextField">Calories</label>
+                    <input type="text" class="form-control"
+                    id="setsTextField"
+                    placeholder="Enter the number of calories"
+                    name="sets" 
+                    value="<%= work.sets %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="repsTextField">Grams of protein</label>
+                    <input type="text" class="form-control"
+                    id="repsTextField"
+                    placeholder="Enter the amount of protein in grams"
+                    name="reps" 
+                    value="<%= work.reps %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descriptionTextArea">Description</label>
+                    <textarea type="text" class="form-control"
+                    id="descriptionTextArea"
+                    placeholder="Enter the a brief description"
+                    name="description" 
+                    required>
+                    <%= work.description %>
+                    </textarea>
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+                
+                    <a href="/workout-list" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel</a>
+                </form>
+        </div>
+
+    </div>
+</div>
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>

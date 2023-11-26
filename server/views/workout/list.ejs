@@ -4,19 +4,20 @@
 <!-- Main Content -->
 <main class="container">
     <div class="row">
-        <div class="col-md-offset-6 col-md-10">
-            <h1><%= title %></h1>
+        <div class="col-md-offset-8 col-md-12">
+            <br>
+            <h1> Food Macro Tracker</h1>
+            <p style="font-size: 20px;">Below you will find a table that will let you track your foods with the name, calories, grams of protein and a description of the food. You will be able to add, edit and delete all the information.</p>
             <a href="workout-list/add" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add an Excercise</a>
+                <i class="fas fa-plus-circle"></i> Add a food</a>
             <br>
             <br>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
                     <th class="text-center col-2">Name</th>
-                    <th class="text-center col-2">Sets</th>
-                    <th class="text-center col-1">Reps</th>
+                    <th class="text-center col-2">Calories</th>
+                    <th class="text-center col-1">Grams of Protein</th>
                     <th class="text-center col-5">Description</th>
-                    <th class="text-center col-1">Target Muscle</th>
                     <th class="text-center col-1"></th>
                     <th class="text-center col-1"></th>
                 </tr>
@@ -27,14 +28,13 @@
                         <td class="text-center col-2"><%= Workoutlist[count].sets %></td>
                         <td class="text-center col-1"><%= Workoutlist[count].reps %></td>
                         <td class="text-center col-5"><%= Workoutlist[count].description %></td>
-                        <td class="text-center col-1"><%= Workoutlist[count].targetMuscle %></td>
                         <td class="text-center col-1">
-                            <a href="/workout/edit/<%= Workoutlist[count]._id %>"
+                            <a href="/workout-list/edit/<%= Workoutlist[count]._id %>"
                                 class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit </a>
                         </td>
                         <td class="text-center col-1">
-                            <a href="/workout/delete/<%= Workoutlist[count]._id %>"
+                            <a href="/workout-list/delete/<%= Workoutlist[count]._id %>"
                                 class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i> Delete </a>
                         </td>
