@@ -9,12 +9,40 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
+        <% if (title == "Home ") { %>
+          <a class="nav-link active" href="/home">
+        <% } else { %>
+           <a class="nav-link" href="/home">
+        <% } %>
+          <i class="fa-solid fa-house"></i> Home</a>
+        </li>
+
+        <li class="nav-item">
         <% if (title == "Workouts") { %>
           <a class="nav-link active" href="/Workout-list">
           <% } else { %>
           <a class="nav-link" href="/Workout-list">
           <% } %>
           <i class="fa-solid fa-apple-whole"></i> Macro Tracker</a>
+        </li>
+
+
+        <li class="nav-item">
+        <% if (title == "Register") { %>
+          <a class="nav-link active" href="/Register">
+          <% } else { %>
+          <a class="nav-link" href="/Register">
+          <% } %>
+          <i class="fa-regular fa-registered"></i> Register</a>
+        </li>
+
+        <li class="nav-item">
+        <% if (title == "Login") { %>
+          <a class="nav-link active" href="/Login">
+          <% } else { %>
+          <a class="nav-link" href="/Login">
+          <% } %>
+          <i class="fa-solid fa-face-smile"></i> Login</a>
         </li>
 
     </div>
