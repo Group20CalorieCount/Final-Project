@@ -6,10 +6,6 @@ let  cookieParser = require('cookie-parser');
 let  logger = require('morgan');
 
 let  app = express();
-let session = require('express-session');
-let passportLocal = require('passport-local');
-let localStrategy = passportLocal.Strategy; 
-let flash = require('connect-flash');
 
 // config mongDB
 let mongoose = require('mongoose');
