@@ -1,0 +1,23 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+
+<!--Main Content-->
+<main>
+<div class="jumbotron">
+  <h1 class="display-4"><h1> Welcome to the <%= title %> page</h1>
+  <% if (title == "Home ") { %>
+     <p style="font-size: 20px;">Hello, this is Group 20, and this is our home page for our website. 
+     Our website is intended to allow users to access a Macro Tracker, 
+     as well as authenticate. As demonstrated below, select the Macro Tracker 
+     button in the nav bar to access the main section of our website. In the same way you may Login and Register.</p>
+      <img src="Assets/new logo.png" alt="Picture of me" width="400" height="380" style="margin-right: 10px; margin-left: 190px">
+      <img src="Assets/Nav pic.png" alt="Workout Tracker" width="520" height="150" style="margin-left: 150px;">
+
+ 
+  <% } %>
+
+</div>
+</main>
+<%- include partials/bottom_nav.ejs %>
+<%- include partials/footer.ejs %>
